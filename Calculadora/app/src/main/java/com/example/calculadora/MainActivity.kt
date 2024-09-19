@@ -102,41 +102,7 @@ class MainActivity : AppCompatActivity() {
             editText.setText(textoActual + "9")
         }
 
-        btnDiv.setOnClickListener{
-            val textoActual = editText.text.toString()
-            editText.setText(textoActual + "/")
-        }
-
-        btnSum.setOnClickListener{
-            val textoActual = editText.text.toString()
-            editText.setText(textoActual + "+")
-        }
-
-        btnRes.setOnClickListener{
-            val textoActual = editText.text.toString()
-            editText.setText(textoActual + "-")
-        }
-
-        btnSum.setOnClickListener{
-            val textoActual = editText.text.toString()
-            editText.setText(textoActual + "+")
-        }
-
-        btnMult.setOnClickListener{
-            val textoActual = editText.text.toString()
-            editText.setText(textoActual + "X")
-        }
-
-        btnIgual.setOnClickListener{
-            val textoActual = editText.text.toString()
-            operaciones(textoActual)
-
-        }
-    }
-
-    fun operaciones(operacion:String){
-        ;
-
 
     }
+
 }
