@@ -66,22 +66,25 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true, showSystemUi = true)
+//@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun calculadoraInterface() {
     val tamanioFuentaboton = 18.sp
-    var text by remember { mutableStateOf(TextFieldValue("")) }
+    var text by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier.fillMaxHeight()
-        .background(androidx.compose.ui.graphics.Color.White)) {
+    Column(
+        modifier = Modifier
+            .fillMaxHeight()
+            .background(androidx.compose.ui.graphics.Color.White)
+    ) {
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
             TextField(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(bottom = 150.dp, top = 130.dp)
-                    .height(150.dp),
+                    .padding(bottom = 110.dp, top = 130.dp)
+                    .height(200.dp),
                 value = text,
                 onValueChange = {
                     text = it
@@ -91,7 +94,7 @@ fun calculadoraInterface() {
                 ),
                 textStyle = TextStyle(
                     textAlign = TextAlign.End,
-                    fontSize = 24.sp,
+                    fontSize = 60.sp,
                     color = androidx.compose.ui.graphics.Color.Black
                 ),
 
@@ -100,7 +103,8 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Transparent,
                     unfocusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
                     focusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent
-                )
+                ),
+                readOnly = true
 
             )
         }
@@ -113,9 +117,10 @@ fun calculadoraInterface() {
                 .padding(2.dp),
                 shape = MaterialTheme.shapes.small,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = androidx.compose.ui.graphics.Color.Black
+                    containerColor = androidx.compose.ui.graphics.Color.Blue
                 ),
                 onClick = {
+                    text = ""
 
                 }) {
                 Text(
@@ -132,7 +137,7 @@ fun calculadoraInterface() {
                 .padding(2.dp),
                 shape = MaterialTheme.shapes.small,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = androidx.compose.ui.graphics.Color.Black
+                    containerColor = androidx.compose.ui.graphics.Color.Blue
                 ),
                 onClick = {
 
@@ -172,6 +177,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "7"
 
                 }) {
                 Text(
@@ -188,7 +194,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
-
+                    text += "8"
                 }) {
                 Text(
                     text = "8", fontSize = tamanioFuentaboton, modifier = Modifier.wrapContentSize()
@@ -204,6 +210,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "9"
 
                 }) {
                 Text(
@@ -239,6 +246,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "4"
 
                 }) {
                 Text(
@@ -255,6 +263,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "5"
 
                 }) {
                 Text(
@@ -271,6 +280,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "6"
 
                 }) {
                 Text(
@@ -307,6 +317,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "1"
 
                 }) {
                 Text(
@@ -323,6 +334,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "2"
 
                 }) {
                 Text(
@@ -339,6 +351,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "3"
 
                 }) {
                 Text(
@@ -375,6 +388,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
+                    text += "0"
 
                 }) {
                 Text(
@@ -415,4 +429,414 @@ fun calculadoraInterface() {
             }
         }
     }
+}
+
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(
+    showSystemUi = true,
+    device = "spec:width=411dp,height=891dp,dpi=420,isRound=false,chinSize=0dp,orientation=landscape"
+)
+@Composable
+fun calculadoraInterfaceLandscape() {
+    val tamanioFuentaboton = 18.sp
+    var text by remember { mutableStateOf("") }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly
+    ) {
+        Column(
+            modifier = Modifier
+                .weight(1f),
+            verticalArrangement = Arrangement.SpaceEvenly
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                TextField(
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(100.dp),
+                    value = text,
+                    onValueChange = {
+                        text = it
+                    },
+                    keyboardOptions = KeyboardOptions.Default.copy(
+                        keyboardType = KeyboardType.Text
+                    ),
+                    textStyle = TextStyle(
+                        textAlign = TextAlign.End,
+                        fontSize = 60.sp,
+                        color = androidx.compose.ui.graphics.Color.Black
+                    ),
+
+
+                    colors = TextFieldDefaults.textFieldColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Transparent,
+                        unfocusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
+                        focusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent
+                    ),
+                    readOnly = true
+
+                )
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Blue
+                    ),
+                    onClick = {
+                        text = ""
+
+                    }) {
+                    Text(
+                        text = "AC",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+
+                Button(modifier = Modifier
+                    .weight(2f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Blue
+                    ),
+                    onClick = {
+
+                    }) {
+                    Text(
+                        text = "COMPARTIR",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Blue
+                    ),
+                    onClick = {
+
+                    }) {
+                    Text(
+                        text = "/",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "7"
+
+                    }) {
+                    Text(
+                        text = "7",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "8"
+                    }) {
+                    Text(
+                        text = "8",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "9"
+
+                    }) {
+                    Text(
+                        text = "9",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Blue
+                    ),
+                    onClick = {
+
+                    }) {
+                    Text(
+                        text = "X",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "4"
+
+                    }) {
+                    Text(
+                        text = "4",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "5"
+
+                    }) {
+                    Text(
+                        text = "5",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "6"
+
+                    }) {
+                    Text(
+                        text = "6",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Blue
+                    ),
+                    onClick = {
+
+                    }) {
+                    Text(
+                        text = "-",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "1"
+
+                    }) {
+                    Text(
+                        text = "1",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "2"
+
+                    }) {
+                    Text(
+                        text = "2",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "3"
+
+                    }) {
+                    Text(
+                        text = "3",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Blue
+                    ),
+                    onClick = {
+
+                    }) {
+                    Text(
+                        text = "+",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Button(modifier = Modifier
+                    .weight(2f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+                        text += "0"
+
+                    }) {
+                    Text(
+                        text = "0",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Black
+                    ),
+                    onClick = {
+
+                    }) {
+                    Text(
+                        text = ".",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+
+                Button(modifier = Modifier
+                    .weight(1f)
+                    .height(70.dp)
+                    .padding(2.dp),
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = androidx.compose.ui.graphics.Color.Blue
+                    ),
+                    onClick = {
+
+                    }) {
+                    Text(
+                        text = "=",
+                        fontSize = tamanioFuentaboton,
+                        modifier = Modifier.wrapContentSize()
+                    )
+                }
+            }
+        }
+    }
+
+
 }
