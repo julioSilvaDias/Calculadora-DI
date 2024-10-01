@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonComa"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonMas"
+        app:layout_constraintStart_toEndOf="@+id/divider"
         app:layout_constraintTop_toBottomOf="@+id/buttonNum1" />
 
     <Button
@@ -43,7 +43,7 @@
         android:text="@string/textMultiplicacion"
         android:textSize="34dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonMas"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNum1"
+        app:layout_constraintEnd_toStartOf="@+id/divider"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonDivision"
         app:layout_constraintTop_toBottomOf="@+id/buttonCompartir" />
@@ -56,7 +56,7 @@
         android:text="@string/textMas"
         android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNum0"
+        app:layout_constraintEnd_toStartOf="@+id/divider"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonMenos"
         app:layout_constraintTop_toBottomOf="@+id/buttonMultiplicacion" />
@@ -121,7 +121,7 @@
         android:backgroundTint="@color/colorBotonesOpe"
         android:text="@string/textCompartir"
         app:layout_constraintBottom_toTopOf="@+id/buttonMultiplicacion"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNum4"
+        app:layout_constraintEnd_toStartOf="@+id/divider"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonAc"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
@@ -179,7 +179,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonNum0"
         app:layout_constraintEnd_toStartOf="@+id/buttonNum2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonMultiplicacion"
+        app:layout_constraintStart_toEndOf="@+id/divider"
         app:layout_constraintTop_toBottomOf="@+id/buttonNum4" />
 
     <Button
@@ -207,7 +207,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonNum1"
         app:layout_constraintEnd_toStartOf="@+id/buttonNum5"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonCompartir"
+        app:layout_constraintStart_toEndOf="@+id/divider"
         app:layout_constraintTop_toBottomOf="@+id/buttonNum7" />
 
     <Button
@@ -249,13 +249,13 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonNum4"
         app:layout_constraintEnd_toStartOf="@+id/buttonNum8"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+        app:layout_constraintStart_toEndOf="@+id/divider"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextNumber"
-        android:layout_width="353dp"
-        android:layout_height="76dp"
+        android:layout_width="325dp"
+        android:layout_height="75dp"
         android:background="@null"
         android:ems="10"
         android:focusable="false"
@@ -264,8 +264,18 @@
         android:textColor="@color/white"
         android:textSize="70sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonCompartir"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNum7"
+        app:layout_constraintEnd_toStartOf="@+id/divider"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="409dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
