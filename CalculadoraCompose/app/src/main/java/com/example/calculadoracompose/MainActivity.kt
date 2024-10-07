@@ -56,29 +56,29 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CalculadoraEstado() {
     val configuration = LocalConfiguration.current
+    var text by rememberSaveable { mutableStateOf("") }
 
     when (configuration.orientation) {
         Configuration.ORIENTATION_LANDSCAPE -> {
-            calculadoraInterfaceLandscape()
+            calculadoraInterfaceLandscape(text = text, onTextChange = { text = it })
         }
 
         else -> {
-            calculadoraInterface()
+            calculadoraInterface(text = text, onTextChange = { text = it })
         }
 
     }
 }
 
 @Composable
-fun calculadoraInterface() {
-    var text by rememberSaveable { mutableStateOf("") }
+fun calculadoraInterface(text: String, onTextChange: (String) -> Unit) {
 
     Column(
         modifier = Modifier
             .fillMaxHeight()
             .background(androidx.compose.ui.graphics.Color.White)
     ) {
-        generarTextField(text = text, onTextChange = { text = it }, 0, 110, 100, 200, 80)
+        generarTextField(text = text, onTextChange = onTextChange, 0, 110, 100, 200, 80)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -93,7 +93,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Blue
                 ),
                 onClick = {
-                    text = ""
+                    onTextChange("")
 
                 }) {
                 Text(
@@ -137,7 +137,7 @@ fun calculadoraInterface() {
 
         generarFilasCalculadoraVertical(
             text = text,
-            onTextChange = { newText -> text = newText },
+            onTextChange = onTextChange,
             btn1 = "7",
             btn2 = "8",
             btn3 = "9",
@@ -146,7 +146,7 @@ fun calculadoraInterface() {
 
         generarFilasCalculadoraVertical(
             text = text,
-            onTextChange = { newText -> text = newText },
+            onTextChange = onTextChange,
             btn1 = "4",
             btn2 = "5",
             btn3 = "6",
@@ -155,7 +155,7 @@ fun calculadoraInterface() {
 
         generarFilasCalculadoraVertical(
             text = text,
-            onTextChange = { newText -> text = newText },
+            onTextChange = onTextChange,
             btn1 = "1",
             btn2 = "2",
             btn3 = "3",
@@ -178,7 +178,7 @@ fun calculadoraInterface() {
                     containerColor = androidx.compose.ui.graphics.Color.Black
                 ),
                 onClick = {
-                    text += "0"
+                    onTextChange(text + "0")
 
                 }) {
                 Text(
@@ -222,9 +222,8 @@ fun calculadoraInterface() {
 }
 
 @Composable
-fun calculadoraInterfaceLandscape() {
+fun calculadoraInterfaceLandscape(text: String, onTextChange: (String) -> Unit) {
     val fontSize = 18.sp
-    var text by rememberSaveable { mutableStateOf("") }
 
     Row(
         modifier = Modifier
@@ -236,7 +235,7 @@ fun calculadoraInterfaceLandscape() {
             modifier = Modifier.weight(1f), verticalArrangement = Arrangement.SpaceEvenly
         ) {
 
-            generarTextField(text = text, onTextChange = { text = it }, 2, 0, 0, 80, 45)
+            generarTextField(text = text, onTextChange = onTextChange, 2, 0, 0, 80, 45)
 
             Row(
                 modifier = Modifier
@@ -252,7 +251,7 @@ fun calculadoraInterfaceLandscape() {
                         containerColor = androidx.compose.ui.graphics.Color.Blue
                     ),
                     onClick = {
-                        text = ""
+                        onTextChange("")
 
                     }) {
                     Text(
@@ -287,7 +286,7 @@ fun calculadoraInterfaceLandscape() {
         ) {
             generarFilaHorizontal(
                 text = text,
-                onTextChange = { newText -> text = newText },
+                onTextChange = onTextChange,
                 btn1 = "7",
                 btn2 = "8",
                 btn3 = "9",
@@ -295,7 +294,7 @@ fun calculadoraInterfaceLandscape() {
 
             generarFilaHorizontal(
                 text = text,
-                onTextChange = { newText -> text = newText },
+                onTextChange = onTextChange,
                 btn1 = "4",
                 btn2 = "5",
                 btn3 = "6",
@@ -303,7 +302,7 @@ fun calculadoraInterfaceLandscape() {
 
             generarFilaHorizontal(
                 text = text,
-                onTextChange = { newText -> text = newText },
+                onTextChange = onTextChange,
                 btn1 = "1",
                 btn2 = "2",
                 btn3 = "3",
@@ -322,7 +321,7 @@ fun calculadoraInterfaceLandscape() {
                         containerColor = androidx.compose.ui.graphics.Color.Black
                     ),
                     onClick = {
-                        text += "0"
+                        onTextChange(text + "0")
 
                     }) {
                     Text(

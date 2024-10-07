@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.calculadoracompose"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.calculadoracompose"
